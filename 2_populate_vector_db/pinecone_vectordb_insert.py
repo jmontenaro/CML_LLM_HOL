@@ -4,7 +4,7 @@ import torch
 import torch.nn.functional as F
 from transformers import AutoTokenizer, AutoModel
 from pathlib import Path
-import pinecone
+from pinecone import Pinecone
 from sentence_transformers import SentenceTransformer
 
 # Get environment variables for Pinecone API key, environment, and index name.
@@ -21,7 +21,7 @@ tokenizer = AutoTokenizer.from_pretrained(EMBEDDING_MODEL_REPO)
 model = AutoModel.from_pretrained(EMBEDDING_MODEL_REPO)
 
 # Define a function to create a Pinecone collection with the specified index name.
-def create_pinecone_collection(PINECONE_INDEX):
+def create_pinecone_collection(pinecone, PINECONE_INDEX):
     try:
         print(f"Creating 768-dimensional index called '{PINECONE_INDEX}'...")
         # Create the Pinecone index with the specified dimension.
@@ -93,11 +93,11 @@ def main():
     try:
         print("initialising Pinecone connection...")
         # Initialize the Pinecone connection with API key and environment.
-        pinecone.init(api_key=PINECONE_API_KEY, environment=PINECONE_ENVIRONMENT)
+        pinecone = Pinecone(api_key=PINECONE_API_KEY)
         print("Pinecone initialised")
         
         # Create a Pinecone collection with the specified index name.
-        collection = create_pinecone_collection(PINECONE_INDEX)
+        collection = create_pinecone_collection(pinecone, PINECONE_INDEX)
         
         # Same files are ignored (e.g. running process repetitively won't overwrite, just pick up new files)
         print("Pinecone index is up and collection is created")
