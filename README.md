@@ -17,7 +17,7 @@ There are currently 8 exercises in the lab, and others will be added soon. It is
   - [3. Explore your data via Pinecone DB](#3-explore-your-data-via-pinecone-db)
   - [4. Deploy a CML application](#4-deploy-a-cml-application)
   - [5. Switch Vector DB to Chroma DB](#5-switch-vector-db-to-chroma-db)
-  - 6. This step intentionally left blank
+  - [U+200E]6. This step intentionally left blank
   - [7. Use a locally hosted LLama2 model](#7-use-a-locally-hosted-llama2-model)
   - [8. Launch Final Application](#8-launch-final-application)
 
