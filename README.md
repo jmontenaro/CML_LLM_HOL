@@ -17,7 +17,7 @@ There are currently 8 exercises in the lab, and others will be added soon. It is
   - [3. Explore your data via Pinecone DB](#3-explore-your-data-via-pinecone-db)
   - [4. Deploy a CML application](#4-deploy-a-cml-application)
   - [5. Switch Vector DB to Chroma DB](#5-switch-vector-db-to-chroma-db)
-  - [6. Langchain](#6-langchain)
+  - [6. This step intentionally left blank]
   - [7. Use a locally hosted LLama2 model](#7-use-a-locally-hosted-llama2-model)
   - [8. Launch Final Application](#8-launch-final-application)
 
@@ -189,26 +189,6 @@ You will recall that in [exercise 2](#2-scrape-and-ingest-data-and-populate-pine
 >**5d.** To confirm the job completed successfully, exit your suession by pressing ![<-- Project](./assets/project-btn.png). Then go to _Jobs_ in the left sidebar and you should see _Success_ next to the _Populate Chroma Vector DB job_.
 
 :pencil2: To support automation CML provides a robust API that supports most of the operations that can be done through the UI. This enables practitioners to plug in to existing CI/CD pipelines that exist in the enterprise.
-
-## 6. Langchain
-
-So far we have seen a number of components that come together to allow us to interact with an LLM, the vector database, the application, the code base, and finally the underlying platform. Langchain is a powerful library that offers a flexible way to chain those (plus more) components together. In this lab we'll look at a particular use of Langchain. For more information see : [Intro to Langchain](https://python.langchain.com/docs/get_started/introduction).
-
-In this section we'll be looking at using langchain to "chain" together the following components:
-- Amazon Bedrock model
-- Chroma Vector DataBase hosted locally
-- Prompt Template
-
-The beauty of using langchain for our example is once we've created the chain object we do not have to rely on custom functions to query the vector store, then send path to LLM for a reponse. This is all done in a single function. The pieces of the "chain" can then be replaced when needed.
-
->**6a.** Go to your session. Create a new one if yours timed out. 
-
->**6b.** Navigate to ```6_langchain_introduction``` and open notebook titled ```Langchain_Bedrock_Chroma.ipynb```
-![Exercise 6 notebook](./assets/langchain-notebook.png)
-
->**6c.** Work through the cells in the notebook by running them. When you are done exist your jupyter session and come back to this guide.
-
-:pencil2: In this exercise you've gotten familiar with a popular chaining package and applied it in a CML session to build a chain for interacting with Bedrock, Chroma, and a specific prompt template. 
 
 ## 7. Use a locally hosted Mistral model
 
