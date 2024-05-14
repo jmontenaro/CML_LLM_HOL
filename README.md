@@ -4,7 +4,7 @@ The goal of this hands-on lab is to explore Cloudera Machine Learning (CML) thro
 
 Because the applications of LLMs can be quite broad across industries, it is useful to hone in on a particular use case for the purposes of this lab. 
 
-> **Lab use case:** Software vendor is looking to pilot an LLM-based chat interface to improve employee productivity when searching product documentation. 
+> **Lab use case:** An LLM-based chat interface kept up to date with the CDC's Morbidity and Mortality Weekly Report. 
  
 ## Lab Flow
 
@@ -27,7 +27,7 @@ Your SSO login link will take you direction to the home screen of Cloudera Data 
 
 > **0a.** Click on the "Machine Learning" icon.
 
-> **0b.** Then click on ML Workspace called _llmhol-aw-wksp_ (the name may vary for your lab).
+> **0b.** Then click on ML Workspace called jpmhol-aw-wksp.
 ![Control Plane to CML](./assets/intro_1.png)
 
 If you are new to CML, take a moment to explore available information through the dashboard.  
@@ -71,7 +71,7 @@ In this first section, we'll interact with a model (Anthropic's Claude) via Amaz
 
 In this section you will define a CML _Job_ to load text data into [Pinecone](https://www.pinecone.io/) vector database. Jobs are responsible for running scripts in a specific and isolated environment (just like sessions from exercise 1).  Jobs can run on a schedule, on-demand, or be joined together into pipelines. 
 
-For this exercise html links are already provided in  ```2_populate_vector_db/html_links.txt```. These sample links point to various pages of [Cloudera's CML documentation](https://docs.cloudera.com/machine-learning/cloud/). In this lab you have an option to point to other URL location(s) by updating this file. However, any time you update the links you will also need to rerun the job. 
+For this exercise html links are already provided in  ```2_populate_vector_db/html_links.txt```. These sample links point to various pages of the [CDC's Morbidity and Mortality Weekly Report](https://www.cdc.gov/mmwr/index2024.html). In this lab you have an option to point to other URL location(s) by updating this file. However, any time you update the links you will also need to rerun the job. 
 
 There are two ways to create a JOB in CML: via the UI or programmatically with [CML's APIv2](https://docs.cloudera.com/machine-learning/cloud/api/topics/ml-api-v2.html). In production you would likely opt for the second option. For this exercise, it's useful to create a job through the UI so we can understand the process a bit better. 
 
@@ -137,7 +137,7 @@ The exercise will walk you through the steps to deploy the application using the
 
 >**4d.** Name your application. Here we name it ```LLM APP```
 
->**4e.** Provide a creative subdomain name. This has to be unique.
+>**4e.** Provide a creative subdomain name. This has to be unique. Using your user name is a good option.
 
 >**4f.** Select the following path for your application **Script**:
 ```4_launch_hosted_app/llm_prototype_app.py```
@@ -165,9 +165,9 @@ You might also notice this script shares some functions with the code we used ea
 >**4i.** Click on the App's URL to navigate to the gradio UI. In a new tab you should see the appliction open:
 ![alt text](.assets/../assets/image_app3.png)
 
-Take some time to ask different questions about CML. Some examples to get you started... 
-- What is ML Runtime?
-- What is the latest CML release?
+Take some time to ask different questions about the CDC reports. Some examples to get you started... 
+- What is the life expectancy at birth for the U.S. population in 2022?
+- What percentage of residential care communities use electronic health records?
 
 Also, note the parameters towards the bottom that you can configure to change the way your application responds. You can choose to use Pinecone or not (i.e. no retreival-augmentation), regulate length of response, and adjust the _Temperature_ (i.e. creativity/randomness) of the response. Note that responses using Vector Database will take longer to return as the LLM needs to process many more tokens as input context.
 
