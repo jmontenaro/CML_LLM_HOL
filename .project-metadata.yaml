@@ -21,7 +21,7 @@ environment_variables:
   #  default: ""
   #  description: "Environment within Pinecone service"
   PINECONE_INDEX:
-    default: ""
+    default: "llmhol"
     description: "Index within Pinecone Environment"
 
 runtimes: 
